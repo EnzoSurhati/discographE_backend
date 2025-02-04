@@ -1,1 +1,1 @@
-# e-commerce
+# Backend for an e-commerce web page that sells music cd's
