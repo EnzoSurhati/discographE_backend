@@ -28,7 +28,6 @@ model Album {
   title     String
   posterUrl String
   userId    Int
-  user      User   @relation(fields: [userId], references: [id])
 }
 
 
