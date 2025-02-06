@@ -66,8 +66,9 @@ router.post('/register', async (req, res, next) => {
 });
 
 // Create login endpoint:
-// reqs: user enters email & password, use bcrypt for password comparison,
-// return JSON web token
+// User enters email & password, use bcrypt for password comparison,
+// Return JSON web token
+
 router.post('/login', async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -174,7 +175,8 @@ router.get('/single-user', isLoggedIn, async (req, res, next) => {
     res.status(401).send({ message: 'Not authorized.' });
   }
 });
-// delete endpoint for the user
+
+// Delete endpoint for the user
 
 router.delete('/user', isLoggedIn, async (req, res, next) => {
   try {
@@ -190,6 +192,8 @@ router.delete('/user', isLoggedIn, async (req, res, next) => {
     res.status(500).json({ message: 'Failed to delete user.' });
   }
 });
+
+// Update User
 
 router.put('/user/update', isLoggedIn, async (req, res) => {
   const { email, first_name, last_name, password } = req.body;
