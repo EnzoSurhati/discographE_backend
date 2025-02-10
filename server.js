@@ -4,10 +4,10 @@ const app = express();
 const PORT = 3000;
 const api = require("./api/index");
 const jwt = require("jsonwebtoken");
-const stripeRoutes = require ("./api/stripePayments");
+const stripeRoutes = require("./api/stripePayments");
 
 app.use(express.json());
-app.use("/api/stripe", stripeRoutes);
+app.use("/api/stripePayments", stripeRoutes);
 
 
 const verifyToken = async (req, res, next) => {
@@ -30,10 +30,7 @@ const verifyToken = async (req, res, next) => {
   })
 }
 
-
 app.use("/api", api);
-
-
 
 app.listen(PORT, () => {
   console.log(`Listening on PORT ${PORT}`);
