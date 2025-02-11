@@ -27,6 +27,7 @@ model Album {
   title     String
   posterUrl String
   userId    Int
+  quantity  Int
 }
 
 
