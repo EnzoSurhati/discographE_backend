@@ -15,7 +15,7 @@ datasource db {
 
 model User {
   id          String    @id @default(uuid())
-  username    String
+  username    String?  //optional
   firstname   String
   lastname    String
   email       String @unique
@@ -23,11 +23,12 @@ model User {
 }
 
 model Album {
-  id        Int    @id
+  id        Int    @id @default(autoincrement())
   title     String
   posterUrl String
-  userId    Int
+  userId    String
   quantity  Int
+  description String?
 }
 
 

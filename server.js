@@ -5,8 +5,10 @@ const PORT = 3000;
 const api = require("./api/index");
 const jwt = require("jsonwebtoken");
 const stripeRoutes = require("./api/stripePayments");
+const cors = require("cors");
 
 app.use(express.json());
+app.use(cors({origin: ["http://localhost:5173"]}))
 app.use("/api/stripePayments", stripeRoutes);
 
 

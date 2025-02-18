@@ -16,6 +16,19 @@ router.get("/", async (req, res, next) => {
   }
 })
 
+router.post("/add", async (req, res) => {
+  const { title, posterUrl, quantity } = req.body;
+  const userId = req.user.id;
+  try {
+    const newAlbum = await prisma.album.create({
+      data: { title, posterUrl, userID, quantity },
+    });
+    res.status(201).json(newAlbum);
+  } catch (error) {
+    res.status(500).json({error: "Could not add an album"});
+  }
+});
+
 router.get("/:id", async (req, res, next) => {
   const {id} = req.params;
   try {

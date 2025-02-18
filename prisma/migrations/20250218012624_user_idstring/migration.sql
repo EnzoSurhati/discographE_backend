@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Album" ALTER COLUMN "userId" SET DATA TYPE TEXT;

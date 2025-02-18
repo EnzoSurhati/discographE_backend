@@ -9,11 +9,14 @@ router.use(express.json());
 
 
 router.post("/", async (req, res, next) =>{
-  const { email, firstname, lastname, password } = req.body;
+  console.log("in register");
+  const { username, email, firstname, lastname, password } = req.body;
+  console.log("breakpoint after req", req.body);
   try {
     const hashPassword = await bcrypt.hash(password, 5);
     const user = await prisma.user.create({
       data: {
+        username,
         email,
         firstname,
         lastname,

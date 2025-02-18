@@ -30,7 +30,7 @@ const verifyToken = async (req, res, next) => {
 }
 
 
-router.post("/", verifyToken, async (req, res, next) => {
+router.get("/", verifyToken, async (req, res, next) => {
   try{
     console.log(req.user);
     res.status(201).json(req.user);
