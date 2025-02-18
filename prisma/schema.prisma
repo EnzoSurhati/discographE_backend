@@ -29,6 +29,7 @@ model Album {
   userId    String
   quantity  Int
   description String?
+  price     Decimal?
 }
 
 

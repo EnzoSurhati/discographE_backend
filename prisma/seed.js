@@ -3,19 +3,18 @@ const { faker } = require('@faker-js/faker');
 
 const prisma = new PrismaClient();
 
-// Change this variable to adjust the number of records to seed
 const NUM_USERS = 5;
 const NUM_ALBUMS = 10;
 
 async function main() {
     console.log('Seeding database...');
 
-    // Seed Users
+    // Seeding Users
     const users = [];
     for (let i = 0; i < NUM_USERS; i++) {
         const user = await prisma.user.create({
             data: {
-                username: faker.internet.userName(),
+                username: faker.internet.username(),
                 firstname: faker.person.firstName(),
                 lastname: faker.person.lastName(),
                 email: faker.internet.email(),
@@ -26,7 +25,7 @@ async function main() {
     }
     console.log(`Seeded ${users.length} users.`);
 
-    // Seed Albums
+    // Seeding Albums
     const albums = [];
     for (let i = 0; i < NUM_ALBUMS; i++) {
         const album = await prisma.album.create({
@@ -36,6 +35,7 @@ async function main() {
                 description: faker.lorem.sentence(),
                 userId: users[Math.floor(Math.random() * users.length)].id,
                 quantity: faker.number.int({ min: 1, max: 20 }),
+                price: faker.commerce.price({ min: 10, max: 40}),
             },
         });
         albums.push(album);

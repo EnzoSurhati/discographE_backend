@@ -67,16 +67,13 @@ router.patch("/:id", async (req, res, next) => {
       }
     });
     console.log(currentQuantity);
-  } catch (error) {
-    
-  }
+
   if (currentQuantity.quantity < purchaseQuantity){
     return res.send("stock too low")
   }
   
   let newQuantity = currentQuantity.quantity - purchaseQuantity;
 
-  try {
     const dbNewQuantity = await prisma.album.update({
       where: {
         id: +id
