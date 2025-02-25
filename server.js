@@ -6,6 +6,7 @@ const api = require("./api/index");
 const jwt = require("jsonwebtoken");
 const stripeRoutes = require("./api/stripePayments");
 const cors = require("cors");
+const deleteUserRoute = require('./api/deleteUser');
 
 app.use(express.json());
 app.use(cors({origin: ["http://localhost:5173"]}))
@@ -33,6 +34,7 @@ const verifyToken = async (req, res, next) => {
 }
 
 app.use("/api", api);
+app.use("/api/deleteUser", deleteUserRoute);
 
 app.listen(PORT, () => {
   console.log(`Listening on PORT ${PORT}`);

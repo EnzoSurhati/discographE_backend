@@ -28,17 +28,17 @@ const verifyToken = async (req, res, next) => {
   })
 }
 
-router.delete("/", verifyToken, async (req, res, next) => {
-  const { email } = req.body;
+router.delete("/:email", verifyToken, async (req, res, next) => {
+  const { email } = req.params;
   try {
-    const singleUser = await prisma.user.delete({
+    const deleteUser = await prisma.user.delete({
       where: {
         email
-      }
+      },
     })
-    res.status(201).json(singleUser);
+    res.status(201).json({ message: "Successful deletion!", deleteUser});
   } catch (error) {
-    res.status(404).json("No user was deleted!");
+    res.status(404).json("No user was found or already deleted!");
   }
 })
 
