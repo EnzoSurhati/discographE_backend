@@ -7,7 +7,6 @@ const jwt = require("jsonwebtoken");
 const stripeRoutes = require("./api/stripePayments");
 const cors = require("cors");
 const deleteUserRoute = require('./api/deleteUser');
-const cors = require("cors");
 
 
 app.use(express.json());
