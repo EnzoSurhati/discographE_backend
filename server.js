@@ -14,7 +14,7 @@ app.use(cors({origin: ["http://localhost:5173"]}))
 // app.use("/api/stripePayments", stripeRoutes);
 
 app.use(cors({
-  origin: "https://hi-fi-whd3.onrender.com", // Allow requests from your frontend
+  origin: ["https://hi-fi-whd3.onrender.com"], // Allow requests from your frontend
   methods: "GET,POST,PUT,DELETE",
   credentials: true // If you're using cookies or authentication
 }));
