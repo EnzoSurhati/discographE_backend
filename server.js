@@ -4,20 +4,17 @@ const app = express();
 const PORT = 3000;
 const api = require("./api/index");
 const jwt = require("jsonwebtoken");
-const stripeRoutes = require("./api/stripePayments");
+// const stripeRoutes = require("./api/stripePayments");
 const cors = require("cors");
 const deleteUserRoute = require('./api/deleteUser');
-
+const path = require("path");
 
 app.use(express.json());
-app.use(cors({origin: ["http://localhost:5173"]}))
+app.use(cors({origin: ["http://localhost:5173", 
+"https://hi-fi-whd3.onrender.com"]}))
 // app.use("/api/stripePayments", stripeRoutes);
 
-app.use(cors({
-  origin: ["https://hi-fi-whd3.onrender.com"], // Allow requests from your frontend
-  methods: "GET,POST,PUT,DELETE",
-  credentials: true // If you're using cookies or authentication
-}));
+app.use(express.static(path.join(__dirname, "dist")));
 
 
 const verifyToken = async (req, res, next) => {
