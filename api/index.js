@@ -8,7 +8,7 @@ const allUsersRoute = require('./allUsers');
 const singleUserRoute = require('./singleUser');
 const deleteUserRoute = require('./deleteUser');
 const updateUserRoute = require('./updateUser');
-const stripePaymentsRoute = require('./stripePayments');
+// const stripePaymentsRoute = require('./stripePayments');
 const albumRoute = require('./album');
 
 router.use(express.json());
@@ -20,7 +20,7 @@ router.use("/allUsers", allUsersRoute);
 router.use("/singleUser", singleUserRoute);
 router.use("/deleteUser", deleteUserRoute);
 router.use("/updateUser", updateUserRoute);
-router.use("/stripePayments", stripePaymentsRoute);
+// router.use("/stripePayments", stripePaymentsRoute);
 router.use("/album", albumRoute);
 
 module.exports = router;

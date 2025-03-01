@@ -10,7 +10,7 @@ const deleteUserRoute = require('./api/deleteUser');
 
 app.use(express.json());
 app.use(cors({origin: ["http://localhost:5173"]}))
-app.use("/api/stripePayments", stripeRoutes);
+// app.use("/api/stripePayments", stripeRoutes);
 
 
 const verifyToken = async (req, res, next) => {
